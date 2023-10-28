@@ -1,0 +1,38 @@
+name: Dependency Track Scan Test
+
+on:
+ pull_request:
+   branches:
+     - main
+
+jobs:
+ dependency-track:
+   runs-on: ubuntu-latest
+
+   steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Instalar dependências
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    - run: npm install
+
+    - name: Gerar BOM
+      uses: CycloneDX/gh-node-module-generatebom@v1
+      with:
+        output: './bom.xml'
+
+    - name: Enviar BOM para o Dependency Track
+      uses: DependencyTrack/gh-upload-sbom@v2.0.1
+      with:
+        # configurações do BOM
+        bomFilename: "./bom.xml"
+        # configurações do servidor do Dependency Track
+        serverHostname: 'ec2-18-229-162-23.sa-east-1.compute.amazonaws.com'
+        protocol: 'http'
+        port: '8081'
+        apiKey: ${{ secrets.DTRACK_SECRET }}
+        # configurações do projeto no Dependency Track
+        project: 11a78064-832c-4f94-9a8c-a9126921bec4
