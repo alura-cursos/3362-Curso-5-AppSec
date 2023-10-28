@@ -51,7 +51,7 @@
       "typeorm": "^0.3.11",
       "typeorm-extension": "^2.8.1",
       "xml2js": "^0.6.0",
-      "xmldom": "^0.6.0",
+      "@xmldom/xmldom": "^0.8.10",
       "yup": "^1.2.0"
    },
    "devDependencies": {
