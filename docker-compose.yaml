@@ -47,6 +47,9 @@ services:
       - "6379:6379"
     networks:
       - my-networks
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
 
 networks:
   my-networks:

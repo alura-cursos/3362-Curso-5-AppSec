@@ -9,3 +9,4 @@ database/
 mysql
 result-trufflehog.txt
 bom.json
+redis.conf

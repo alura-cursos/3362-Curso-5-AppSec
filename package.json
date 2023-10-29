@@ -23,6 +23,7 @@
    },
    "homepage": "https://github.com/bugan/API-Voll.Med#readme",
    "dependencies": {
+      "@xmldom/xmldom": "^0.8.10",
       "cep-promise": "^4.4.0",
       "cors": "^2.8.5",
       "cpf-cnpj-validator": "^1.0.3",
@@ -32,6 +33,7 @@
       "fast-xml-parser": "^4.2.2",
       "file-type": "^18.4.0",
       "file-type-stream": "^1.0.0",
+      "helmet": "^7.0.0",
       "http-status-codes": "^2.2.0",
       "jimp": "^0.22.8",
       "jsonwebtoken": "^9.0.0",
@@ -51,7 +53,6 @@
       "typeorm": "^0.3.11",
       "typeorm-extension": "^2.8.1",
       "xml2js": "^0.6.0",
-      "@xmldom/xmldom": "^0.8.10",
       "yup": "^1.2.0"
    },
    "devDependencies": {

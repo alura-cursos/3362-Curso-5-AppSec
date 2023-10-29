@@ -1,12 +1,17 @@
 import { type RedisClientType, createClient } from 'redis'
 import jwt from 'jsonwebtoken'
+import * as dotenv from 'dotenv'
+
+dotenv.config({ path: '.env' })
+
 export default class ClienteRedis {
   private readonly cliente: RedisClientType
   private readonly prefixo: string
 
   constructor (prefixo: string) {
     this.cliente = createClient({
-      url: 'redis://redis:6379'
+      url: 'redis://redis:6379',
+      password: process.env.REDIS_PASSWORD,
     })
 
     this.prefixo = prefixo
