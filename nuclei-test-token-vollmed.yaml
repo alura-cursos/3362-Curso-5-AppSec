@@ -1,0 +1,16 @@
+id: business-logic-vulnerability-delete-users
+info:
+  name: Business Logic Vulnerability - Delete Users
+  author: pdteam
+  severity: high
+
+http:
+  - method: DELETE
+    path:
+      - "{{BaseURL}}/paciente/{{UserId}}"
+    headers:
+      Authorization: "Bearer {{Token}}"
+    matchers:
+      - type: status
+        status:
+          - 200

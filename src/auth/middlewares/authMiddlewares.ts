@@ -28,6 +28,10 @@ function verificaTokenJWT (...role: Role[]) {
           .json({ auth: false, message: 'Falha ao autenticar o token. Token expirou' })
       }
 
+      if (req.params.id != decoded.id) {
+        throw new AppError('Não autorizado', Status.FORBIDDEN)
+      }
+
       if (role.length > 0 && !role.includes(decoded.role)) {
         return res.status(403).json({ auth: false, message: 'Não autorizado' })
       }
